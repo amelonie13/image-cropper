@@ -70,6 +70,8 @@ cropImage(event?: any){
   secondCtx.rect(x -100 , y -100, 200, 200);
   secondCtx.clip();
   secondCtx!.drawImage(image, 0,0 )
+  let dataURL = output.toDataURL("image/png");
+  console.log(dataURL)
 }
 
 }
