@@ -57,6 +57,7 @@ cropImage(event?: any){
   const image = new Image();
   let canvas = document.getElementById('imgCanvas') as HTMLCanvasElement;
   let output = document.getElementById('output') as HTMLCanvasElement;
+
   image.src = canvas.toDataURL();
   output.width = image.width;
   output.height = image.height;
@@ -64,14 +65,28 @@ cropImage(event?: any){
   let secondCtx = output.getContext('2d')!
   let x = event.dropPoint.x
   let y = event.dropPoint.y
+  let finalWidth = output.width 
+  const width = this.calculatAspectRatioW(image.width, canvas.getBoundingClientRect().width, 200);
+  const height = this.calculatAspectRatioH(image.height, canvas.getBoundingClientRect().height, 200);
 
-  // Create a circular clipping path
   secondCtx.beginPath();
-  secondCtx.rect(x -100 , y -100, 200, 200);
+  secondCtx.rect(x -100 , y -100, width, height);
   secondCtx.clip();
   secondCtx!.drawImage(image, 0,0 )
   let dataURL = output.toDataURL("image/png");
-  console.log(dataURL)
 }
-
+calculatAspectRatioW(originalImgWidth: any, currentW: any,  cropperWidth: any){
+  if(originalImgWidth !== 0){
+  return  originalImgWidth / currentW * cropperWidth;
+  } else {
+    return 200;
+  }
+}
+calculatAspectRatioH(originalImgHeigth: any, currentH: any,  cropperHeigth: any){
+  if(originalImgHeigth !== 0){
+  return  originalImgHeigth /currentH * cropperHeigth;
+  } else {
+    return 200;
+  }
+}
 }

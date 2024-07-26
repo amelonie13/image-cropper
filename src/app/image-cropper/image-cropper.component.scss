@@ -1,10 +1,14 @@
 .wrapper{
     display: flex;
+    position: relative;
+    z-index: 1;
+    top: 0!important;
+    left: 0!important;
 }
 
 .img--canvas{
-    // max-width: 500px;
-    // max-height: 500px;
+     max-width: 500px;
+    max-height: 500px;
 }
 .example-box {
     width: 200px;
@@ -19,7 +23,9 @@
     background: transparent;
     border-radius: 4px;
     position: relative;
-    z-index: 1;
+    z-index: 100;
+    top: 0;
+    left: 0;
     transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
                 0 2px 2px 0 rgba(0, 0, 0, 0.14),
