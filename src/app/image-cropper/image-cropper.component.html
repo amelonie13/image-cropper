@@ -1,11 +1,11 @@
 
-<div class="example-box"  id="cutter" cdkDragBoundary=".img--canvas" cdkDrag [cdkDragFreeDragPosition]="dragPosition" (cdkDragEnded)="cropImage($event)"></div>
 <div class="wrapper">
     <canvas class="img--canvas" id="imgCanvas">
 
     </canvas>
     <canvas class="img--canvas" id="output"></canvas>
 </div>
+<div class="example-box"  id="cutter" cdkDragBoundary=".img--canvas" cdkDrag [cdkDragFreeDragPosition]="dragPosition" (cdkDragEnded)="cropImage($event)"></div>
 
 <button (click)="cropImage()">Click</button>
 <input type="file"  (change)="getImage($event)"

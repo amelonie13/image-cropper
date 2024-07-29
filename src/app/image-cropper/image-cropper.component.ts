@@ -70,7 +70,7 @@ cropImage(event?: any){
   const height = this.calculatAspectRatioH(image.height, canvas.getBoundingClientRect().height, 200);
 
   secondCtx.beginPath();
-  secondCtx.rect(x -100 , y -100, width, height);
+  secondCtx.rect(x , y, width, height);
   secondCtx.clip();
   secondCtx!.drawImage(image, 0,0 )
   let dataURL = output.toDataURL("image/png");
